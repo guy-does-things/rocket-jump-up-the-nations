@@ -1,4 +1,4 @@
-tool
+#tool
 extends HBoxContainer
 
 export(String) var input_name
@@ -6,8 +6,16 @@ var started = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
+func get_input_name(event)->String:
+	if event is InputEventMouseButton:
+		return "Mouse Button" + str(event.mouse_index)
+	print(OS.get_scancode_string(event.scancode))
+	return OS.get_scancode_string(event.scancode)
+	
 func _process(delta):
-	$Label.text = input_name + " " + str(InputMap.get_action_list(input_name))
+	
+	$Label.text = input_name + " " + get_input_name(InputMap.get_action_list(input_name)[0])
+
 	if !started:
 		set_process_input(false)
 		$Button.text = "press to change input"

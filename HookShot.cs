@@ -18,7 +18,7 @@ public class HookShot : RayCast2D
     {
         Hooked = false;
         Collision = null;
-        line.Points = new Vector2[2];
+        line.Points = null;//new Vector2[2];
     
     }
 

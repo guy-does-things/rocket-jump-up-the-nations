@@ -26,3 +26,27 @@ margin_bottom = -4.0
 
 [node name="HBoxContainer" parent="TabContainer/BUTTONS" instance=ExtResource( 1 )]
 margin_right = 952.0
+
+[node name="HBoxContainer2" parent="TabContainer/BUTTONS" instance=ExtResource( 1 )]
+margin_top = 24.0
+margin_right = 952.0
+margin_bottom = 44.0
+input_name = "right"
+
+[node name="HBoxContainer3" parent="TabContainer/BUTTONS" instance=ExtResource( 1 )]
+margin_top = 48.0
+margin_right = 952.0
+margin_bottom = 68.0
+input_name = "jump"
+
+[node name="HBoxContainer4" parent="TabContainer/BUTTONS" instance=ExtResource( 1 )]
+margin_top = 72.0
+margin_right = 952.0
+margin_bottom = 92.0
+input_name = "shoot"
+
+[node name="HBoxContainer5" parent="TabContainer/BUTTONS" instance=ExtResource( 1 )]
+margin_top = 96.0
+margin_right = 952.0
+margin_bottom = 116.0
+input_name = "hook"
