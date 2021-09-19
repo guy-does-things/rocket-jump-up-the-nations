@@ -16,6 +16,7 @@
 [ext_resource path="res://Levels/Label.gd" type="Script" id=14]
 [ext_resource path="res://fuck.tres" type="DynamicFont" id=15]
 [ext_resource path="res://expmine.tscn" type="PackedScene" id=16]
+[ext_resource path="res://GLES2WORLD.tres" type="Environment" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -59,13 +60,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 33.0177, 16.1064 )
-
-[sub_resource type="Environment" id=4]
-background_mode = 4
-auto_exposure_speed = 5.48
-glow_enabled = true
-glow_bloom = 0.01
-glow_bicubic_upscale = true
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 0, -1 )
@@ -132,7 +126,6 @@ range_layer_min = -103
 range_layer_max = -1
 
 [node name="Light2D2" type="Light2D" parent="ParallaxBackground/Sun"]
-visible = false
 texture = ExtResource( 6 )
 texture_scale = 11.23
 color = Color( 0.988235, 0.847059, 0, 1 )
@@ -140,7 +133,6 @@ range_layer_min = -103
 range_layer_max = -1
 
 [node name="Light2D3" type="Light2D" parent="ParallaxBackground/Sun"]
-visible = false
 texture = ExtResource( 6 )
 texture_scale = 16.78
 color = Color( 0.988235, 0.847059, 0, 1 )
@@ -195,7 +187,7 @@ __meta__ = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 4 )
+environment = ExtResource( 17 )
 
 [node name="Tween" type="Tween" parent="."]
 
