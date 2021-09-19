@@ -180,9 +180,10 @@ public class Player : KinematicBody2D
 
     public void AddGun(RocketLauncher rocketlaunch)
     {
+        rocketlaunch.Position = GetNode<Sprite>("Sprite2").Position;
         gun.SetLauncher(rocketlaunch);
 
-        AddChild(rocketlaunch);
+        GetNode<Sprite>("Sprite3").AddChild(rocketlaunch);
     }
 
     public override void _PhysicsProcess(float delta)
@@ -204,6 +205,11 @@ public class Player : KinematicBody2D
                     IsAbleToJump = false;
                     CoyoteTimer.Stop();
                 }
+            }
+
+            if (Input.IsActionJustReleased("jump") && statemacine.GetState() == StateMachine.STATES.JUMP && hook.GetMovementDir(GlobalPosition, 1.0f) == Vector2.Zero )
+            {
+                Velocity.y = 0;
             }
 
 

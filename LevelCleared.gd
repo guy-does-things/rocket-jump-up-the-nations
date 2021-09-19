@@ -8,10 +8,12 @@ func _ready():
 
 func _on_Button_pressed():
 	get_tree().paused = false
+	
 	Levels.increaseLevel()
 
 
 func _on_Button2_pressed():
 	get_tree().paused = false
 	Levels.currentlevel = 0
+	Globals.Restart()
 	get_tree().change_scene("res://TitleScreen.tscn")

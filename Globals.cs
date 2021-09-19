@@ -7,7 +7,10 @@ public class Globals : Node
 
     private int TotalDeaths;
 
-
+    public void Restart()
+    {
+        TotalDeaths = 0;
+    }
 
     public void IncreaseDeaths()
     {

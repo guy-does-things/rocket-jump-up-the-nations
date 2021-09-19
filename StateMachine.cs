@@ -95,6 +95,7 @@ public class StateMachine : Node
         switch (CurrentState)
         {
             case STATES.IDLE:
+                Parent.anim.Play("ifle");
                 if (Parent.Velocity.y > 0)
                 {
                     return STATES.FALL;
@@ -112,6 +113,7 @@ public class StateMachine : Node
                 break;
 
             case STATES.WALK:
+                Parent.anim.Play("walk");
                 if (Parent.Velocity.y > 0)
                 {
                     return STATES.FALL;
@@ -130,6 +132,7 @@ public class StateMachine : Node
 
 
             case STATES.FALL:
+                Parent.anim.Play("jum");
                 if (Parent.Velocity.y < 0)
                 {
                     return STATES.JUMP;
@@ -141,7 +144,9 @@ public class StateMachine : Node
                 }            
                 break;    
 
+
             case STATES.JUMP:
+                Parent.anim.Play("jum");
                 if (Parent.Velocity.y > 0)
                 {
                     return STATES.FALL;

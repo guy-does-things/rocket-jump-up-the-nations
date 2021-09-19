@@ -83,6 +83,7 @@ position = Vector2( -176, -168.442 )
 [node name="GrapplePoints" type="Node" parent="."]
 
 [node name="GrapplePoint2" parent="GrapplePoints" instance=ExtResource( 3 )]
+position = Vector2( 2165.29, -423.873 )
 
 [node name="GrapplePoint3" parent="GrapplePoints" instance=ExtResource( 3 )]
 position = Vector2( 3309.45, -630.931 )
@@ -213,6 +214,9 @@ invert_enable = true
 invert_border = 600.0
 polygon = PoolVector2Array( -272, -240, -112, -240, -112, 64, 224, 64, 224, 192, 640, 192, 640, 16, 864, 16, 864, -336, 1744, -336, 1744, -848, 2752, -848, 2752, -768, 3104, -768, 3104, -928, 5136, -928, 5136, -576, 5312, -576, 5312, -400, 4592, -400, 4592, -176, 3088, -176, 3088, -400, 2752, -400, 2752, -160, 1760, -160, 1760, 208, 1264, 208, 1264, 416, -272, 416 )
 uv = PoolVector2Array( -272, -240, -112, -240, -112, 64, 224, 64, 224, 192, 640, 192, 640, 16, 864, 16, 864, -336, 1744, -336, 1744, -848, 2752, -848, 2752, -768, 3104, -768, 3104, -928, 5136, -928, 5136, -576, 5312, -576, 5312, -400, 4592, -400, 4592, -176, 3088, -176, 3088, -400, 2752, -400, 2752, -160, 1760, -160, 1760, 208, 1264, 208, 1264, 416, -272, 416 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TileMap2" parent="." instance=ExtResource( 13 )]
 position = Vector2( 5189.73, -463.162 )
