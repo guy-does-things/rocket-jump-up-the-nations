@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://actualTitle.tscn" type="PackedScene" id=1]
 [ext_resource path="res://BG1.png" type="Texture" id=2]
 [ext_resource path="res://BG2.png" type="Texture" id=3]
 [ext_resource path="res://TitleScreen.gd" type="Script" id=4]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+auto_exposure_speed = 5.48
+glow_enabled = true
+glow_bloom = 0.01
+glow_bicubic_upscale = true
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -50,3 +57,6 @@ texture = ExtResource( 2 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1920, 450 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )

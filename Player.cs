@@ -119,6 +119,7 @@ public class Player : KinematicBody2D
 
     public AnimationPlayer anim; 
     
+    public Globals GlobalStuff;
     public World theworld;
     public StateMachine statemacine;
     public Timer CoyoteTimer;
@@ -128,6 +129,7 @@ public class Player : KinematicBody2D
     {
         get{return deathcounter;}
     }
+
     public void SetCheckPoint(Vector2 CheckPointPos)
     {
         GD.Print("WHY NOT WORK");
@@ -148,7 +150,9 @@ public class Player : KinematicBody2D
     {
         anim.Play("death");
         statemacine.SetState(StateMachine.STATES.DEAD);
-        deathcounter += 1;
+        deathcounter++;
+        theworld.IncreaseDeaths();
+        GlobalStuff.IncreaseDeaths();
         
     }
 
@@ -161,11 +165,14 @@ public class Player : KinematicBody2D
     }
     public override void _Ready()
     {
+        AddToGroup("player");
+        SetCheckPoint(GlobalPosition);
+
+        GlobalStuff = (Globals)GetTree().Root.GetNode("Globals");
         anim = GetNode<AnimationPlayer>("AnimationPlayer");
         theworld = GetParent() as World; 
         statemacine = GetNode<StateMachine>("StateMachine");
         CoyoteTimer = GetNode<Timer>("Timer");
-        SetCheckPoint(GlobalPosition);
         Jumpcast = GetNode<RayCast2D>("RayCast2D");
         hook = GetNode<HookShot>("HookShot");
         cam = GetNode<Camera2D>("Camera2D");
@@ -195,6 +202,7 @@ public class Player : KinematicBody2D
                 if(jmp.Jump(this, canJump()))
                 {
                     IsAbleToJump = false;
+                    CoyoteTimer.Stop();
                 }
             }
 

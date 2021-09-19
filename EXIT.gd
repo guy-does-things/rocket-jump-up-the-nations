@@ -1,4 +1,4 @@
-extends Control
+extends TileMap
 
 
 # Declare member variables here. Examples:
@@ -16,13 +16,9 @@ func _ready():
 #	pass
 
 
-func _on_Button_pressed():
-	Levels.increaseLevel()
-
-
-func _on_Button2_pressed():
-	var pene = preload("res://Settigns.tscn").instance()
-	add_child(pene)
-
-func _on_Button3_pressed():
-	get_tree().quit()
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("player"):
+		var pene = preload("res://LevelCleared.tscn").instance()
+		Globals.TheWorld.endscreen.add_child(pene)
+		get_tree().paused = true
+		queue_free()

@@ -8,8 +8,8 @@ var started = false
 
 func get_input_name(event)->String:
 	if event is InputEventMouseButton:
-		return "Mouse Button" + str(event.mouse_index)
-	print(OS.get_scancode_string(event.scancode))
+		return "Mouse Button" + str(event.button_index)
+	#print(OS.get_scancode_string(event.scancode))
 	return OS.get_scancode_string(event.scancode)
 	
 func _process(delta):

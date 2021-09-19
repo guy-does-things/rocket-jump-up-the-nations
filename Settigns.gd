@@ -17,12 +17,4 @@ func _ready():
 
 
 func _on_Button_pressed():
-	Levels.increaseLevel()
-
-
-func _on_Button2_pressed():
-	var pene = preload("res://Settigns.tscn").instance()
-	add_child(pene)
-
-func _on_Button3_pressed():
-	get_tree().quit()
+	queue_free()
