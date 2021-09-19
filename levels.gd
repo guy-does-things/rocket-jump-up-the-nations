@@ -14,7 +14,9 @@ var levels = {
 
 func increaseLevel():
 	currentlevel += 1
-	
+	if currentlevel == 4:
+		currentlevel = 0
+		get_tree().change_scene("res://TitleScreen.tscn")
 	get_tree().change_scene(levels[currentlevel])
 	
 

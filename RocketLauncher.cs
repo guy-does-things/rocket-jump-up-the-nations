@@ -19,7 +19,7 @@ public class RocketLauncher : Sprite
         
         exp.GlobalPosition = GlobalPosition;
 
-        exp.Rotation = Rotation;
+        exp.Rotation = GlobalRotation;
 
         Globals sexo = (Globals)GetTree().Root.GetNode("Globals");
         

@@ -52,6 +52,11 @@ public class StateMachine : Node
         {
             Parent.CoyoteTimer.Start();
         }
+
+        if (NewState == STATES.DEAD)
+        {
+            Parent.GetNode<AudioStreamPlayer>("dead").Play();
+        }
     }
 
     private void ExitState(STATES PreviousState, STATES NewState)
@@ -64,6 +69,8 @@ public class StateMachine : Node
         PreviousState = CurrentState;
 
         CurrentState = NewState;
+
+
 
         if (PreviousState != STATES.NONE)
         {

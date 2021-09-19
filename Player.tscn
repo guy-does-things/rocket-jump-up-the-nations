@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Player.cs" type="Script" id=1]
 [ext_resource path="res://oldplayer.png" type="Texture" id=2]
 [ext_resource path="res://HookShot.cs" type="Script" id=3]
 [ext_resource path="res://StateMachine.cs" type="Script" id=4]
 [ext_resource path="res://hand.png" type="Texture" id=5]
+[ext_resource path="res://jump.wav" type="AudioStream" id=6]
+[ext_resource path="res://fuckingdied.wav" type="AudioStream" id=7]
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 7.9408
 height = 9.33718
 
@@ -39,7 +41,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "ifle"
 length = 0.1
 tracks/0/type = "value"
@@ -55,7 +57,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "jum"
 length = 0.1
 tracks/0/type = "value"
@@ -71,8 +73,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "walk"
+[sub_resource type="Animation" id=5]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -96,7 +97,7 @@ hframes = 4
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -112,9 +113,9 @@ script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/death = SubResource( 2 )
-anims/ifle = SubResource( 6 )
-anims/jum = SubResource( 5 )
-anims/walk = SubResource( 4 )
+anims/ifle = SubResource( 3 )
+anims/jum = SubResource( 4 )
+anims/walk = SubResource( 5 )
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -135,3 +136,9 @@ texture = ExtResource( 5 )
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( -6.8, -0.8 )
 texture = ExtResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="dead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )

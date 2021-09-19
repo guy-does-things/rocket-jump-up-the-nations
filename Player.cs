@@ -49,11 +49,10 @@ public class ShootComponent
 
     public void Update(Player plr)
     {
-        if (Gun != null)
-        {
-            Gun.AimAt(plr.GetGlobalMousePosition());
+        //if (Gun != null)
+            //Gun.AimAt(plr.GetGlobalMousePosition());
 
-        }
+        plr.GetNode<Sprite>("Sprite3").LookAt(plr.GetGlobalMousePosition());
     }
 }
 
@@ -197,11 +196,13 @@ public class Player : KinematicBody2D
             gun.Update(this);
             input.ApplyVelocity(this, 50f);
             gun.TryFiring(GetGlobalMousePosition());
+            
 
             if (Input.IsActionJustPressed("jump"))
             {
                 if(jmp.Jump(this, canJump()))
                 {
+                    GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
                     IsAbleToJump = false;
                     CoyoteTimer.Stop();
                 }

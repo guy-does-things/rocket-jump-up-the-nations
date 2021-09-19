@@ -10,7 +10,7 @@ public class Explosion : Area2D
 
 	public override void _Ready()
 	{
-		
+		GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D").Play();
 		particle_fx = GetNode<CPUParticles2D>("CPUParticles2D");
 		particle_fx.Emitting = true;
 		Connect("body_exited", this, "PlrExited");
@@ -35,7 +35,7 @@ public class Explosion : Area2D
 			OnBodyEntered(body as PhysicsBody2D);
 		}
 
-		if (!particle_fx.Emitting)
+		if (!particle_fx.Emitting && !GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D").Playing)
 		{
 			QueueFree();
 		}

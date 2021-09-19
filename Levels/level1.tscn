@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://World.cs" type="Script" id=1]
 [ext_resource path="res://CheckPoint.tscn" type="PackedScene" id=2]
@@ -9,14 +9,15 @@
 [ext_resource path="res://bricks.png" type="Texture" id=7]
 [ext_resource path="res://BG2.png" type="Texture" id=8]
 [ext_resource path="res://BG1.png" type="Texture" id=9]
-[ext_resource path="res://icon.png" type="Texture" id=10]
+[ext_resource path="res://ROCKETLAUNCHER.PNG" type="Texture" id=10]
 [ext_resource path="res://RocketLauncher.cs" type="Script" id=11]
 [ext_resource path="res://GunPickup.cs" type="Script" id=12]
 [ext_resource path="res://EXIT.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Levels/Label.gd" type="Script" id=14]
 [ext_resource path="res://fuck.tres" type="DynamicFont" id=15]
+[ext_resource path="res://expmine.tscn" type="PackedScene" id=16]
 
-[sub_resource type="ConvexPolygonShape2D" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="TileSet" id=2]
@@ -30,14 +31,14 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 1/navigation_offset = Vector2( 0, 0 )
 1/shape_offset = Vector2( 0, 0 )
 1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape = SubResource( 5 )
+1/shape = SubResource( 1 )
 1/shape_one_way = false
 1/shape_one_way_margin = 1.0
 1/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 1/z_index = 0
@@ -102,9 +103,8 @@ __meta__ = {
 }
 
 [node name="RocketLauncher" type="Sprite" parent="GunPickup"]
-modulate = Color( 1, 0, 0, 1 )
-scale = Vector2( 0.5, 0.25 )
 texture = ExtResource( 10 )
+offset = Vector2( 10, 0 )
 script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GunPickup"]
@@ -236,5 +236,29 @@ script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Area2D" parent="." instance=ExtResource( 16 )]
+position = Vector2( 706.766, 399.986 )
+
+[node name="Area2D3" parent="." instance=ExtResource( 16 )]
+position = Vector2( -34.2458, 403.109 )
+
+[node name="Area2D8" parent="." instance=ExtResource( 16 )]
+position = Vector2( 70.8304, 397.917 )
+
+[node name="Area2D5" parent="." instance=ExtResource( 16 )]
+position = Vector2( 422.774, 401.725 )
+
+[node name="Area2D4" parent="." instance=ExtResource( 16 )]
+position = Vector2( 323.09, 402.393 )
+
+[node name="Area2D2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1173.11, 361.39 )
+
+[node name="Area2D11" parent="." instance=ExtResource( 16 )]
+position = Vector2( 4.9277, 402.344 )
+
+[node name="Area2D9" parent="." instance=ExtResource( 16 )]
+position = Vector2( 1238.97, 394.254 )
 
 [connection signal="body_entered" from="GunPickup" to="GunPickup" method="OnBodyEntered"]
