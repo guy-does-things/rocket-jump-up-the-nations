@@ -52,6 +52,11 @@ public class StateMachine : Node
         {
             Parent.CoyoteTimer.Start();
         }
+
+        if (NewState == STATES.DEAD)
+        {
+            Parent.GetNode<AudioStreamPlayer>("dead").Play();
+        }
     }
 
     private void ExitState(STATES PreviousState, STATES NewState)
@@ -64,6 +69,8 @@ public class StateMachine : Node
         PreviousState = CurrentState;
 
         CurrentState = NewState;
+
+
 
         if (PreviousState != STATES.NONE)
         {
@@ -95,6 +102,7 @@ public class StateMachine : Node
         switch (CurrentState)
         {
             case STATES.IDLE:
+                Parent.anim.Play("ifle");
                 if (Parent.Velocity.y > 0)
                 {
                     return STATES.FALL;
@@ -112,6 +120,7 @@ public class StateMachine : Node
                 break;
 
             case STATES.WALK:
+                Parent.anim.Play("walk");
                 if (Parent.Velocity.y > 0)
                 {
                     return STATES.FALL;
@@ -130,6 +139,7 @@ public class StateMachine : Node
 
 
             case STATES.FALL:
+                Parent.anim.Play("jum");
                 if (Parent.Velocity.y < 0)
                 {
                     return STATES.JUMP;
@@ -141,7 +151,9 @@ public class StateMachine : Node
                 }            
                 break;    
 
+
             case STATES.JUMP:
+                Parent.anim.Play("jum");
                 if (Parent.Velocity.y > 0)
                 {
                     return STATES.FALL;

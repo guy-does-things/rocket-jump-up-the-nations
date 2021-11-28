@@ -93,7 +93,3 @@ func _input(event):
 		get_tree().reload_current_scene()
 		_ready()
 		
-	if Input.is_action_just_pressed("ui_end"):
-		get_tree().change_scene("res://Main.tscn")
-	if Input.is_action_just_pressed("ui_home"):
-		get_tree().change_scene("res://Settigns.tscn")
