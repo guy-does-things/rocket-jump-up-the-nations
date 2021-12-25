@@ -9,7 +9,8 @@ var started = false
 func get_input_name(event)->String:
 	if event is InputEventMouseButton:
 		return "Mouse Button" + str(event.button_index)
-	#print(OS.get_scancode_string(event.scancode))
+		
+	print(OS.get_scancode_string(event.scancode))
 	return OS.get_scancode_string(event.scancode)
 	
 func _process(delta):
@@ -23,6 +24,7 @@ func _process(delta):
 
 func _input(event):
 	if !event is InputEventMouseMotion:
+		
 		if event is InputEventKey or event is InputEventMouseButton:
 			Settings.change_input(input_name, event)
 		else:
@@ -31,9 +33,9 @@ func _input(event):
 			$Timer.start()
 			yield($Timer, "timeout")
 			$Button.text = "press to change input"
-			
+		
 		set_process_input(false)
-
+		
 
 func _on_Button_pressed():
 	set_process_input(true)
